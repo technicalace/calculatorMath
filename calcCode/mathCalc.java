@@ -11,7 +11,12 @@ public class mathCalc {
     public static void main(String[] args) {
         // introduction 
         Scanner userInput = new Scanner(System.in); 
-        System.out.println("Hello, welcome to the program. What is your name: ");
+        simpEq se = new simpEq(); 
+
+        se.setNums();
+        se.setOperatorsAndSolve();
+
+        /*System.out.println("Hello, welcome to the program. What is your name: ");
 
         name = userInput.nextLine(); 
         System.out.println("Hello " + name + " welcome to the program.");
@@ -51,6 +56,6 @@ public class mathCalc {
                 System.out.println("That is not a valid character, try again.");
         }
 
-        userInput.close();
+        userInput.close();*/
     }
 }
