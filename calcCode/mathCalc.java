@@ -8,7 +8,9 @@ public class mathCalc {
         // introduction 
         Scanner userInput = new Scanner(System.in); 
         simpEq se = new simpEq(); 
+        soaCahToa sct = new soaCahToa();
 
+        sct.hasAngle();
         se.setNums();
         se.setOperatorsAndSolve();
 
