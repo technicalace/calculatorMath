@@ -3,9 +3,7 @@ import java.util.Scanner;
 
 
 public class simpEq {
-     int x; 
-     int y; 
-     int result; 
+     int x, y, result; 
 
     void setNums() {
         Scanner userInput = new Scanner(System.in);

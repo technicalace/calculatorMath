@@ -3,10 +3,6 @@ import java.util.Scanner;
 
 
 public class mathCalc {
-    public static String name; 
-    public static int x; 
-    public static int y;
-    public static int result; 
     
     public static void main(String[] args) {
         // introduction 
