@@ -10,9 +10,7 @@ public class mathCalc {
         simpEq se = new simpEq(); 
         soaCahToa sct = new soaCahToa();
 
-        sct.hasAngle();
-        se.setNums();
-        se.setOperatorsAndSolve();
+        sct.selectFun();
 
         /*System.out.println("Hello, welcome to the program. What is your name: ");
 
