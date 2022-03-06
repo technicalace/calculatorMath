@@ -1,6 +1,8 @@
 package calcCode;
 
 import java.util.Scanner;
+
+
 import java.lang.Math;
 
 
@@ -54,20 +56,35 @@ public class soaCahToa {
 
     void inputValuesMissingSide() {
         Scanner userResp = new Scanner(System.in);
-        
-        System.out.println("Input your angle (0.0): ");
-        angle = userResp.nextDouble(); 
-
-        System.out.println("Input first number: ");
-        x = userResp.nextInt(); 
-
-        System.out.println("Input second number: ");
-        y = userResp.nextInt(); 
+        String sideName;
 
         if (sin = true) {
-            result1 = Math.sin(x/y); 
-        } else if (cos = true) {
+            System.out.println("What side value do you have(opposite/hypotonuse): ");
+            sideName = userResp.nextLine().toLowerCase(); 
+            if (sideName.equals("opposite")) {
+                System.out.println("Enter your opposite value to find your hypotonuse: ");
+                x = userResp.nextDouble(); 
 
+                System.out.println("Enter your angle: ");
+                angle = userResp.nextDouble();
+
+                result1 = Math.sin(angle); 
+                result2 = x * result1; 
+
+                System.out.println("Your hypotonuse of your triangle is:\n" + result2);
+            
+            } else if (sideName.equals("hypotonuse")) {
+                System.out.println("Enter your hypotonuse value to find your opposite: ");
+                y = userResp.nextDouble();
+
+                System.out.println("Enter your angle: ");
+                angle = userResp.nextDouble(); 
+
+                result1 = (xMath.sin(angle)); 
+               
+
+                System.out.println("The opposite of your triangle is:\n" + result1);
+            }
         }
 
         userResp.close();
