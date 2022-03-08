@@ -13,6 +13,8 @@ public class simpEq {
 
         System.out.println("Please enter your second number: ");
         y = userInput.nextInt();   
+
+        setOperatorsAndSolve();
     }
 
     void setOperatorsAndSolve() {

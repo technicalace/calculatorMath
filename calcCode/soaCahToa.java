@@ -8,95 +8,85 @@ import java.lang.Math;
 
 public class soaCahToa {
     String funType, probType;
-    double x, y, angle, result1, result2; 
+    int x, y, angle, result1, result2; 
     boolean sin,cos,tan; 
 
     void selectFun() {
         Scanner userResp = new Scanner(System.in); 
 
-        System.out.println("Solving for: \n1.) Missing side\n2.) Missing angle\n");
-        probType = userResp.nextLine().toLowerCase(); 
-
-        System.out.println("Which function would you like to use? (sin, cos, tan)");
-        funType = userResp.nextLine().toLowerCase();
-
-        switch (funType) {
-            case "sin": 
-                sin = true;
-                cos = false;
-                tan = false; 
-                break; 
-            case "cos": 
-                sin = false; 
-                cos = true; 
-                tan = false;
-                break; 
-            case "tan":
-                sin = false; 
-                cos = false; 
-                tan = true;
-                break; 
-            default: 
-                System.out.println("That is not a valid input, try again");
-                selectFun();
-        }
-
-        if (probType.equals("missing side")) {
-            inputValuesMissingSide();
-        } else if (probType.equals("missing angle")) {
-            inputValueMissingAngle();
-        } else {
-            System.out.println("That's not a valid input you dumb dumb boi try again, and go cry about it.");
-        }
-    
-        userResp.close();
+       System.out.println("Would you like to choose radian or degree mode?");
+       probType = userResp.nextLine(); 
+       
+       if (probType.equalsIgnoreCase("degree")) {
+            System.out.println("\nYou are now in degree mode: ");
+            degSolve();
+       } else if (probType.equalsIgnoreCase("radian")) {
+            System.out.println("\nYou are now in radian mode: ");
+            radSolve();
+       } else {
+           System.out.println("That is not a valid type.");
+           selectFun();
+       }
     }
 
    
 
-    void inputValuesMissingSide() {
+    void degSolve() {
         Scanner userResp = new Scanner(System.in);
-        String sideName;
 
-        if (sin = true) {
-            System.out.println("What side value do you have(opposite/hypotonuse): ");
-            sideName = userResp.nextLine().toLowerCase(); 
-            if (sideName.equals("opposite")) {
-                System.out.println("Enter your opposite value to find your hypotonuse: ");
-                x = userResp.nextDouble(); 
+        System.out.println("You are in degree mode, what function would you like to use? ");
+        System.out.println("(sin, cos, tan): ");
+        funType = userResp.nextLine().toLowerCase(); 
 
-                System.out.println("Enter your angle: ");
-                angle = userResp.nextDouble();
-
-                result1 = Math.sin(angle); 
-                result2 = x * result1; 
-
-                System.out.println("Your hypotonuse of your triangle is:\n" + result2);
-            
-            } else if (sideName.equals("hypotonuse")) {
-                System.out.println("Enter your hypotonuse value to find your opposite: ");
-                y = userResp.nextDouble();
-
-                System.out.println("Enter your angle: ");
-                angle = userResp.nextDouble(); 
-
-                result1 = (xMath.sin(angle)); 
-               
-
-                System.out.println("The opposite of your triangle is:\n" + result1);
-            }
+        switch (funType) {
+            case "sin": 
+                System.out.println("You have chosen sin\nChoose your number: ");
+                x = userResp.nextInt(); 
+                System.out.println(Math.sin(Math.toRadians(x)));
+                break; 
+            case "cos": 
+                System.out.println("You have chosen cos\nChoose your number: ");
+                x = userResp.nextInt();
+                System.out.println(Math.cos(Math.toRadians(x)));
+                break; 
+            case "tan": 
+                System.out.println("You have chosen tan\nChoose your number: ");
+                x = userResp.nextInt(); 
+                System.out.println(Math.tan(Math.toRadians(x)));
+            default: 
+                System.out.println("That is not a valid input.");
+                degSolve();
         }
-
         userResp.close();
     }
 
-    void inputValueMissingAngle() {
+    void radSolve() {
        Scanner userResp = new Scanner(System.in);
        
-        System.out.println("Input first number: ");
-        x = userResp.nextInt(); 
+       System.out.println("You are in radian mode, what function would you like to use? ");
+       System.out.println("(sin, cos, tan): ");
+       funType = userResp.nextLine().toLowerCase(); 
 
-        System.out.println("Input second number: ");
-        y = userResp.nextInt(); 
+       switch (funType) {
+        case "sin": 
+            System.out.println("You have chosen sin\nChoose your number: ");
+            x = userResp.nextInt(); 
+            System.out.println(Math.sin(x));
+            break; 
+        case "cos": 
+            System.out.println("You have chosen cos\nChoose your number: ");
+            x = userResp.nextInt();
+            System.out.println(Math.cos(x));
+            break; 
+        case "tan": 
+            System.out.println("You have chosen tan\nChoose your number: ");
+            x = userResp.nextInt(); 
+            System.out.println(Math.tan(x));
+        default: 
+            System.out.println("That is not a valid input.");
+            radSolve();
+    }
+    userResp.close();
+
     }
 }

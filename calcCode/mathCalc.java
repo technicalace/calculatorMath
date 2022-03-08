@@ -2,15 +2,29 @@ package calcCode;
 import java.util.Scanner;
 
 
-public class mathCalc {
-    
-    public static void main(String[] args) {
-        // introduction 
-        Scanner userInput = new Scanner(System.in); 
-        simpEq se = new simpEq(); 
-        soaCahToa sct = new soaCahToa();
 
-        sct.selectFun();
+public class mathCalc {
+ 
+    public static void main(String[] args) {
+        String input;
+        Scanner userInput = new Scanner(System.in); 
+
+        simpEq se = new simpEq();
+        soaCahToa sct = new soaCahToa();
+        
+        System.out.println("What tyoe of equation would you like to solve for?\n1.) Simple equation\n2.) SOHCOHTOA");
+        input = userInput.nextLine();
+
+        if (input.equalsIgnoreCase("simple equation")) {
+            se.setNums();
+        } else if (input.equalsIgnoreCase("sohcohtoa")) {
+            sct.selectFun();
+        } else {
+            System.out.println("That is not a valid equation.");
+        }
+
+        userInput.close();
+
 
         /*System.out.println("Hello, welcome to the program. What is your name: ");
 
