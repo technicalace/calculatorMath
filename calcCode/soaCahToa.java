@@ -58,7 +58,7 @@ public class soaCahToa {
         Scanner userResp = new Scanner(System.in);
         String sideName;
 
-        if (sin = true) {
+        if (sin == true && cos == false && tan == false) {
             System.out.println("What side value do you have(opposite/hypotonuse): ");
             sideName = userResp.nextLine().toLowerCase(); 
             if (sideName.equals("opposite")) {
@@ -70,6 +70,7 @@ public class soaCahToa {
 
                 result1 = Math.sin(angle); 
                 result2 = x * result1; 
+                Math.toDegrees(result2); 
 
                 System.out.println("Your hypotonuse of your triangle is:\n" + result2);
             
@@ -80,11 +81,21 @@ public class soaCahToa {
                 System.out.println("Enter your angle: ");
                 angle = userResp.nextDouble(); 
 
-                result1 = (xMath.sin(angle)); 
-               
+                result1 = (Math.sin(angle)); 
+                
 
                 System.out.println("The opposite of your triangle is:\n" + result1);
             }
+        } else if (sin == false && cos == true && tan == false) {
+            System.out.println("What side value do you have(adjacant/hypotonuse): ");
+            sideName = userResp.nextLine().toLowerCase(); 
+            if (sideName.equals("adjacant")) {
+                System.out.println("Enter your adjacant value to find your hypotonuse: ");
+                x = userResp.nextDouble(); 
+
+                System.out.println("Enter your angle: ");
+                angle = userResp.nextDouble(); 
+            } 
         }
 
         userResp.close();
