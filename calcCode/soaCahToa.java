@@ -59,7 +59,6 @@ public class soaCahToa {
         }
         userResp.close();
     }
-
     void radSolve() {
        Scanner userResp = new Scanner(System.in);
        
