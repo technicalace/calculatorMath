@@ -1,6 +1,8 @@
 package calcCode;
 import java.util.Scanner;
 
+import calcCode.physics.basicPhysics;
+
 
 
 public class mathCalc {
@@ -11,15 +13,23 @@ public class mathCalc {
 
         simpEq se = new simpEq();
         soaCahToa sct = new soaCahToa();
+        basicPhysics bPhysics = new basicPhysics();
         
-        System.out.println("What tyoe of equation would you like to solve for?\n1.) Simple equation\n2.) SOHCOHTOA");
+        System.out.println("What tyoe of equation would you like to solve for?\n1.) Simple Equation\n2.) SOHCOHTOA\n3.) Basic Physics");
+        
         input = userInput.nextLine();
 
         if (input.equalsIgnoreCase("simple equation")) {
+            System.out.println("======================================");
             se.setNums();
         } else if (input.equalsIgnoreCase("sohcohtoa")) {
+            System.out.println("======================================");
             sct.selectFun();
+        } else if (input.equalsIgnoreCase("basic physics")) {
+            System.out.println("======================================");
+            bPhysics.physics();
         } else {
+            System.out.println("======================================");
             System.out.println("That is not a valid equation.");
         }
 
