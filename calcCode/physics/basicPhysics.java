@@ -7,6 +7,16 @@ import javax.swing.plaf.synth.SynthScrollPaneUI;
 public class basicPhysics {
     char funType, probType; 
     double d, vi, vf, a, t, tt, dt, vAvg;
+    /* INDEX: 
+        D = Distance (m)
+        Vi = Initial Velocity (m/s)
+        Vf = Final Velocity (m/s)
+        A = Acceleration (m/s[2])
+        T = Time (s)
+        Tt = Total Time (s)
+        Dt = Total Distance (m)
+        Vavg = Average Velocity (m/s)
+    */
 
     public void physics() {
         Scanner userResp = new Scanner(System.in);
