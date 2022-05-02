@@ -10,6 +10,11 @@ public class soaCahToa {
     String funType, probType;
     int x, y, angle, result1, result2; 
     boolean sin,cos,tan; 
+    /* INDEX: 
+        X = First Number 
+        Y = Second Number 
+        Angle = Self explainatory 
+    */
 
     void selectFun() {
         Scanner userResp = new Scanner(System.in); 

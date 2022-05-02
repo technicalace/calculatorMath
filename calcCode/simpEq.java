@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 public class simpEq {
      int x, y, result; 
+     /* INDEX:
+         X = First Number 
+         Y = Second Number 
+         Result = Pretty self explainatory 
+
+     */
 
     void setNums() {
         Scanner userInput = new Scanner(System.in);
