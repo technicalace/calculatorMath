@@ -55,7 +55,7 @@ public class basicPhysics {
 
     public void kinematics() {
         Scanner userResp = new Scanner(System.in);
-        
+
         System.out.println("What type of equation would you like to use? (Type in a letter): ");
         System.out.println("A.) d = Vt\nB.) Vavg = dt / tt\nC.) Vf = Vi + at\nD.) d = (Vi + Vf)t / 2\nE.) Vf[2] = Vi[2] + 2at");
         System.out.println();
@@ -132,7 +132,8 @@ public class basicPhysics {
                 t = userResp.nextDouble(); 
                 System.out.println("======================================");   
                 System.out.println("Vf[2]" + " = "+vi+"[2] + 2"+"("+a+")"+"("+t+")");
-                vf = (vi*2) + (2 * 2 * a * t);
+                vf = getSquare1() + 2 * (a) * (t);
+                vf = getSquare2(); 
                 System.out.println("Vf =" + vf + "m/s");
                 break;
             default: 
@@ -151,5 +152,13 @@ public class basicPhysics {
 
     public void projectileMotion() {
 
+    }
+
+    public double getSquare1() {
+        return vi * vi;
+    }
+
+    public double getSquare2() {
+        return vf * vf;
     }
 }
