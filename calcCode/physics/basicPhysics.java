@@ -6,7 +6,7 @@ import javax.swing.plaf.synth.SynthScrollPaneUI;
 
 public class basicPhysics {
     char funType, probType; 
-    double d, vi, vf, a, t, tt, dt, vAvg;
+    double d, vi, vf, a, t, tt, dt, vAvg, x1, x2, result;
     /* INDEX: 
         D = Distance (m)
         Vi = Initial Velocity (m/s)
@@ -16,6 +16,7 @@ public class basicPhysics {
         Tt = Total Time (s)
         Dt = Total Distance (m)
         Vavg = Average Velocity (m/s)
+        X = System Number
     */
 
     public void physics() {
@@ -123,7 +124,7 @@ public class basicPhysics {
             case 'E': 
                 System.out.println("======================================");   
                 System.out.println("Enter your initial velocity (m/s): ");
-                vi = userResp.nextDouble(); 
+                x1 = userResp.nextDouble(); 
                 System.out.println("======================================");   
                 System.out.println("Enter your acceleration (m/s[2]): ");
                 a = userResp.nextDouble();
@@ -132,9 +133,11 @@ public class basicPhysics {
                 t = userResp.nextDouble(); 
                 System.out.println("======================================");   
                 System.out.println("Vf[2]" + " = "+vi+"[2] + 2"+"("+a+")"+"("+t+")");
-                vf = getSquare1() + 2 * (a) * (t);
-                vf = getSquare2(); 
-                System.out.println("Vf =" + vf + "m/s");
+                vi = Math.pow(x1, 2); // initial velocty is rose to the second power 
+                x2 = 2 * a * t; 
+                vf = vi + x2; // initial velocity times second num 
+                result = Math.sqrt(vf);
+                System.out.println("Vf =" + result + "m/s");
                 break;
             default: 
                 System.out.println("Invalid input.");
@@ -154,11 +157,11 @@ public class basicPhysics {
 
     }
 
-    public double getSquare1() {
-        return vi * vi;
-    }
+    /*public double getSquare1() {
+        return userNum * userNum;
+    }*/
 
     public double getSquare2() {
-        return vf * vf;
+        return x2 * x2;
     }
 }
