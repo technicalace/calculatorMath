@@ -327,20 +327,109 @@ public class basicPhysics {
     public void projectileMotion() {
         Scanner userResp = new Scanner(System.in);
 
+        double x3;
+
         System.out.println("What type of equation would you like to use for Projectile Motion? (Type in a letter): ");
-        System.out.println("A.) Vx = VcosAng\nB.) Viy = VsinAng\bC.) \nD.) Ang = tan[-1](y/x)");
+        System.out.println("A.) Vx = VcosAng\nB.) Viy = VsinAng\bC.) Dx = Vxt\nD.) Vfy = Viy - 9.80t\nE.) Dx = V[2](Sin2Ang) / 9.80\nF.) t = √dy / √4.90\nG.) t = 2Viy / 9.80");
         System.out.println();
         probType = userResp.next().charAt(0); 
 
         switch (probType) {
             case 'A': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Velocity (m/s): ");
+                
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your Angle (%): ");
 
+                x1 = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Vx = "+vAvg+"cos"+x1);
+
+                x2 = Math.cos(x1); 
+                result = vAvg * x2; 
+
+                System.out.println("Vx =" + result);
+                break; 
             case 'B': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Velocity (m/s): ");
 
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your Angle (%): ");
+
+                x1 = userResp.nextDouble();
+                System.out.println("======================================");   
+                System.out.println("Viy = " + vAvg+"sin"+x1);
+
+                x2 = Math.sin(x1); 
+                result = vAvg * x2; 
+
+                System.out.println("Viy = " + result);
+                break; 
             case 'C': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Velocity (m/s): ");
 
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your time (s): ");
+
+                t = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Dx = " +"("+vAvg+")"+"("+t+")");
+
+                result = vAvg * t; 
+
+                System.out.println("Dx = " + result);
+                break; 
             case 'D': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Velocity in the Y direction (m/s): ");
 
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your time (s): ");
+
+                t = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Dfy = " + vAvg + " - " + "(9.80)"+t);
+
+                x1 = t * 9.80; 
+                result = vAvg - x1; 
+
+                System.out.println("Dfy = "+ result);
+                break; 
+            case 'E': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Velocity (m/s): ");
+
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your Angle (%): ");
+
+                x1 = userResp.nextDouble();
+                System.out.println("======================================");   
+                System.out.println("Dfy = " + vAvg +"[2]"+"(Sin2"+x1+") / 9.80");
+
+                x2 = Math.pow(vAvg, 2); 
+                x3 = Math.sin(x1); 
+                double x4 = x3 * 2; 
+                result = x4 / 9.80; 
+
+                System.out.println("Dfy = " + result);
+                break; 
+            case 'F': 
+                System.out.println("======================================");   
+                System.out.println("Enter your Distance in the Y direction (m): ");
+
+                x1 = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("Enter your ");
+            case 'G': 
+            
             default: 
         }
     }
