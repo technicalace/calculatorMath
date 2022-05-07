@@ -427,9 +427,25 @@ public class basicPhysics {
 
                 x1 = userResp.nextDouble(); 
                 System.out.println("======================================");   
-                System.out.println("Enter your ");
+                System.out.println("t = √"+x1+ " / √4.90");
+
+                x2 = Math.sqrt(x1); 
+                result = x2 / (Math.sqrt(4.90));
+
+                System.out.println("t = " + result);
+                break;
             case 'G': 
-            
+                System.out.println("======================================");                   
+                System.out.println("Enter your Velocity in the Y direction (m/s): ");
+
+                vAvg = userResp.nextDouble(); 
+                System.out.println("======================================");   
+                System.out.println("t = 2"+vAvg+" / 9.80");
+
+                result = (2*vAvg) / 9.80;
+
+                System.out.println("t = " + result);
+                break;
             default: 
         }
     }
