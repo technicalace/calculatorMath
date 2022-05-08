@@ -1,4 +1,4 @@
-package calcCode;
+package calcCode.numberPlayground;
 import java.util.Random;
 import java.util.Scanner;
  

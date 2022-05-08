@@ -1,4 +1,4 @@
-package calcCode;
+package calcCode.basic_math;
 import java.util.Scanner;
 
 
@@ -11,7 +11,7 @@ public class simpEq {
 
      */
 
-    void setNums() {
+    public void setNums() {
         Scanner userInput = new Scanner(System.in);
 
         System.out.println("Please enter your first number: ");

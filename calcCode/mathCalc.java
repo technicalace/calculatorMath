@@ -1,45 +1,45 @@
 package calcCode;
 import java.util.Scanner;
 
+import calcCode.basic_math.basicMath;
+import calcCode.basic_math.simpEq;
+import calcCode.numberPlayground.dieRoller;
+import calcCode.numberPlayground.numberPlay;
+import calcCode.numberPlayground.numberPlayground;
 import calcCode.physics.basicPhysics;
+import calcCode.physics.physics;
+import calcCode.trigonometry.soaCahToa;
+import calcCode.trigonometry.trig;
 
 
 
 public class mathCalc {
  
     public static void main(String[] args) {
-        String input;
+        int input;
         Scanner userInput = new Scanner(System.in); 
 
-        simpEq se = new simpEq();
-        soaCahToa sct = new soaCahToa();
-        basicPhysics bPhysics = new basicPhysics();
-        dieRoller droller = new dieRoller();
-        numberPlayground np = new numberPlayground();
+        basicMath bm = new basicMath(); 
+        numberPlay nplay = new numberPlay(); 
+        physics phys = new physics(); 
+        trig trig = new trig(); 
         
-        System.out.println("What tyoe of equation/function would you like to use?\n1.) Simple Equation\n2.) SOHCOHTOA\n3.) Basic Physics\n4.) Die Roller\n5.) Number Playground");
+        System.out.println("What tyoe of function would you like to use?\n1.) Basic Math\n2.) Trigonometry\n3.) Physics\n4.) Number Playground");
         
-        input = userInput.nextLine();
+        input = userInput.nextInt();
 
-        if (input.equalsIgnoreCase("simple equation")) {
+        if (input == 1) {
             System.out.println("======================================");
-            se.setNums();
-        } else if (input.equalsIgnoreCase("sohcohtoa")) {
+            bm.basicM(); 
+        } else if (input == 2) {
             System.out.println("======================================");
-            sct.selectFun();
-        } else if (input.equalsIgnoreCase("basic physics")) {
+            phys.phy();
+        } else if (input == 3) {
             System.out.println("======================================");
-            bPhysics.physics();
-        } else if (input.equalsIgnoreCase("Die Roller")) {
+            trig.trig();
+        } else if (input == 4) {
             System.out.println("======================================");
-            droller.dChoice();
-        } else if (input.equalsIgnoreCase("number playground")) {
-            System.out.println("======================================");
-            np.introduction();
-        } else {
-            System.out.println("======================================");
-            System.out.println("That is not a valid input, please try again.");
-            main(args);
+            nplay.numPlay(); 
         }
 
         /*System.out.println("Hello, welcome to the program. What is your name: ");

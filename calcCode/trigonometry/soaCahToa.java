@@ -1,4 +1,4 @@
-package calcCode;
+package calcCode.trigonometry;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class soaCahToa {
         Angle = Self explainatory 
     */
 
-    void selectFun() {
+    public void selectFun() {
         Scanner userResp = new Scanner(System.in); 
 
        System.out.println("Would you like to choose radian or degree mode?");
