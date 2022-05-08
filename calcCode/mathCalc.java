@@ -14,8 +14,10 @@ public class mathCalc {
         simpEq se = new simpEq();
         soaCahToa sct = new soaCahToa();
         basicPhysics bPhysics = new basicPhysics();
+        dieRoller droller = new dieRoller();
+        numberPlayground np = new numberPlayground();
         
-        System.out.println("What tyoe of equation would you like to solve for?\n1.) Simple Equation\n2.) SOHCOHTOA\n3.) Basic Physics");
+        System.out.println("What tyoe of equation/function would you like to use?\n1.) Simple Equation\n2.) SOHCOHTOA\n3.) Basic Physics\n4.) Die Roller\n5.) Number Playground");
         
         input = userInput.nextLine();
 
@@ -28,13 +30,17 @@ public class mathCalc {
         } else if (input.equalsIgnoreCase("basic physics")) {
             System.out.println("======================================");
             bPhysics.physics();
+        } else if (input.equalsIgnoreCase("Die Roller")) {
+            System.out.println("======================================");
+            droller.dChoice();
+        } else if (input.equalsIgnoreCase("number playground")) {
+            System.out.println("======================================");
+            np.introduction();
         } else {
             System.out.println("======================================");
-            System.out.println("That is not a valid equation.");
+            System.out.println("That is not a valid input, please try again.");
+            main(args);
         }
-
-        userInput.close();
-
 
         /*System.out.println("Hello, welcome to the program. What is your name: ");
 
