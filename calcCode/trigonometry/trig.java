@@ -8,7 +8,7 @@ public class trig {
         Scanner scan = new Scanner(System.in); 
         soaCahToa sct = new soaCahToa(); 
 
-        System.out.println("What function would you like to use?: ");
+        System.out.println("What function would you like to use?:\n1.) SohCahToa");
 
         input = scan.nextInt(); 
 

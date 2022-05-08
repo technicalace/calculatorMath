@@ -9,7 +9,7 @@ public class numberPlay {
         dieRoller dr = new dieRoller();
         numberPlayground np = new numberPlayground();
 
-        System.out.println("What function would you like to use?\n1.) Dice Roller\2.) Counting ");
+        System.out.println("What function would you like to use?\n1.) Dice Roller\n2.) Counting ");
         
         input = scan.nextInt(); 
 

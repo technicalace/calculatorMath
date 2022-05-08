@@ -26,10 +26,10 @@ public class mathCalc {
             bm.basicM(); 
         } else if (input == 2) {
             System.out.println("======================================");
-            phys.phy();
+            trig.trig();
         } else if (input == 3) {
             System.out.println("======================================");
-            trig.trig();
+            phys.phy();
         } else if (input == 4) {
             System.out.println("======================================");
             nplay.numPlay(); 
