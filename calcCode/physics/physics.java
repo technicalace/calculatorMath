@@ -9,6 +9,7 @@ public class physics {
         basicPhysics bp = new basicPhysics(); 
 
         System.out.println("What function would you like to use?:\n1.) Basic Physics ");
+        
 
         input = scan.nextInt();
 
