@@ -2,16 +2,9 @@ package calcCode;
 import java.util.Scanner;
 
 import calcCode.basic_math.basicMath;
-import calcCode.basic_math.simpEq;
-import calcCode.numberPlayground.dieRoller;
 import calcCode.numberPlayground.numberPlay;
-import calcCode.numberPlayground.numberPlayground;
-import calcCode.physics.basicPhysics;
 import calcCode.physics.physics;
-import calcCode.trigonometry.soaCahToa;
 import calcCode.trigonometry.trig;
-
-
 
 public class mathCalc {
  
@@ -40,6 +33,10 @@ public class mathCalc {
         } else if (input == 4) {
             System.out.println("======================================");
             nplay.numPlay(); 
+        } else {
+            System.out.println("======================================");
+            System.out.println("Not a valid input, please try again.");
+            main(args);
         }
 
         /*System.out.println("Hello, welcome to the program. What is your name: ");
