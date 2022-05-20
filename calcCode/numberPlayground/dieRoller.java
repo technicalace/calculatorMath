@@ -12,21 +12,42 @@ public class dieRoller {
         Scanner scan = new Scanner(System.in);    
 
         System.out.println("What die would you like to roll for?:\n1.) d5\n2.) d10\n3.) d20");
+        input = scan.nextInt(); 
 
-        input = scan.nextInt();
-
-        while (scan.hasNextDouble()) scan.next(); 
-            input = scan.nextInt();
-       do {
-            while (scan.hasNextDouble()) scan.hasNext(); 
-            die10 = scan.nextInt();
-        } while (die10 < input); 
-        System.out.println(die10 + " " + input);
+        if (input == 1) {
+            dice5();
+        } else if (input == 2) {
+            dice10();
+        } else if (input == 3) {
+            dice20();
+        } else {
+            System.out.println("That is not a valid input, please try again.");
+            dChoice();
+        }
     }
-    
-    public void dice5() {
-        System.out.println("======================================");
 
+    public void dice5() {
+        Random rNum = new Random(); 
+
+        int randint = rNum.nextInt(6);
+        System.out.println("======================================");
+        System.out.println(randint);
+    }
+
+    public void dice10() {
+        Random rNum = new Random(); 
+
+        int randint = rNum.nextInt(11); 
+        System.out.println("======================================");
+        System.out.println(randint);
+    }
+
+    public void dice20() {
+        Random rNum = new Random(); 
+
+        int randint = rNum.nextInt(21);
+        System.out.println("======================================");
+        System.out.println(randint);
     }
 }
 
