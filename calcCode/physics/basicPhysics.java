@@ -1,10 +1,13 @@
 package calcCode.physics;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class basicPhysics {
+    private static final double InputMismatchException = 0;
     char funType, probType; 
     double d, vi, vf, a, t, tt, dt, vAvg, r, x1, x2, result;
     /* INDEX: 
@@ -64,112 +67,142 @@ public class basicPhysics {
 
         switch(probType) {
             case 'A': 
-                System.out.println("======================================");   
-                System.out.println("Enter your velocity (m/s): ");
-                System.out.println();
-                
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
-                
-                t = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("d" + " = ("+vAvg+")" + "("+t+")");
-                
-                d = vAvg*t; 
-                
-                System.out.println("D =" + d + "m");
+               try {
+                    System.out.println("======================================"); // catching error algorithim (lines 70-79)
+                    System.out.println("Enter your velocity (m/s): ");
+
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
+
+                    t = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("d" + " = ("+vAvg+")" + "("+t+")");
+
+                    d = vAvg*t; 
+
+                    System.out.println("D =" + d + "m");
+               } catch (Exception e) { // catches exceptions from user 
+                   System.out.println("======================================");   
+                   System.out.println("That input is not valid, please try again");
+                   System.out.println("======================================");   
+                   kinematics();
+               }
                 break;  
             case 'B': 
-                System.out.println("======================================");   
-                System.out.println("Enter your total distance (m): ");
-                System.out.println();
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your total distance (m): ");
+                    System.out.println();
                 
-                dt = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your total time (s): ");
+                    dt = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your total time (s): ");
                 
-                tt = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Vavg" + " = ("+dt+")" + "/" + "("+tt+")");
+                    tt = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Vavg" + " = ("+dt+")" + "/" + "("+tt+")");
                 
-                vAvg = dt/tt;
+                    vAvg = dt/tt;
                 
-                System.out.println("Vavg =" + vAvg + "m/s");
+                    System.out.println("Vavg =" + vAvg + "m/s");
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    kinematics();
+                }
                 break;
             case 'C': 
-                System.out.println("======================================");   
-                System.out.println("Enter your inital velocity (m/s): ");
-                System.out.println();
+               try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your inital velocity (m/s): ");
+                    System.out.println();
                
-                vi = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your acceleration (m/s[2]): ");
+                    vi = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your acceleration (m/s[2]): ");
                
-                a = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    a = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
                
-                t = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Vf" + " = " + vi + " + " + "("+a+")"+"("+t+")" );
+                    t = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Vf" + " = " + vi + " + " + "("+a+")"+"("+t+")" );
                
-                vf = vi + (a * t);
+                    vf = vi + (a * t);
                
-                System.out.println("Vf =" + vf + "m/s");
+                    System.out.println("Vf =" + vf + "m/s");
+               } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    kinematics();
+               }
                 break;
             case 'D': 
-                System.out.println("======================================");   
-                System.out.println("Enter your initial velocity (m/s): ");
-                System.out.println();
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your initial velocity (m/s): ");
+                    System.out.println();
                
-                vi = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your final velocity (m/s): ");
+                    vi = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your final velocity (m/s): ");
                
-                vf = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    vf = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
                
-                t = userResp.nextDouble();
-                System.out.println("============ ==========================");   
-                System.out.println("d" + " = ("+vi+ " + " +vf+")"+t + " / " + " 2");
+                    t = userResp.nextDouble();
+                    System.out.println("============ ==========================");   
+                    System.out.println("d" + " = ("+vi+ " + " +vf+")"+t + " / " + " 2");
                
-                d = (vi + vf) * t / 2;
+                    d = (vi + vf) * t / 2;
                
-                System.out.println("D =" + d + "m");
+                    System.out.println("D =" + d + "m");
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    kinematics();
+                }
                 break;
             case 'E': 
-                System.out.println("======================================");   
-                System.out.println("Enter your initial velocity (m/s): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your initial velocity (m/s): ");
                 
-                x1 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your acceleration (m/s[2]): ");
+                    x1 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your acceleration (m/s[2]): ");
                 
-                a = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    a = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
                 
-                t = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Vf[2]" + " = "+vi+"[2] + 2"+"("+a+")"+"("+t+")");
+                    t = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Vf[2]" + " = "+vi+"[2] + 2"+"("+a+")"+"("+t+")");
                 
-                vi = Math.pow(x1, 2); // initial velocty is rose to the second power 
-                x2 = 2 * a * t; 
-                vf = vi + x2; // initial velocity times second num 
+                    vi = Math.pow(x1, 2); // initial velocty is rose to the second power 
+                    x2 = 2 * a * t; 
+                    vf = vi + x2; // initial velocity times second num 
                 
-                result = Math.sqrt(vf);
-                System.out.println("Vf =" + result + "m/s");
+                    result = Math.sqrt(vf);
+                    System.out.println("Vf =" + result + "m/s");
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    kinematics();
+                }
                 break;
-            default: 
-                System.out.println("======================================");   
-                System.out.println("Invalid input.");
-                kinematics();
             }
     }
 
-    public void uniformCircularM() {
+    public void uniformCircularM() { // START HERE VVV
         Scanner userResp = new Scanner(System.in);
 
         System.out.println("What type of equation would you like to use for Uniform Circular Motion? (Type in a letter): ");
