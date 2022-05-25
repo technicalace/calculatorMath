@@ -1,13 +1,9 @@
 package calcCode.physics;
 
-import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
 
-public class basicPhysics {
-    private static final double InputMismatchException = 0;
+public class basicPhysics { // primary variables 
     char funType, probType; 
     double d, vi, vf, a, t, tt, dt, vAvg, r, x1, x2, result;
     /* INDEX: 
@@ -22,9 +18,10 @@ public class basicPhysics {
         X = System Number
     */
 
-    public void physics() {
-        Scanner userResp = new Scanner(System.in);
-
+    public void physics() { // user entering program 
+        Scanner userResp = new Scanner(System.in); 
+        
+        // using a switch case statement for user to select function
         System.out.println("What type of system of functions would you like to solve for? (Type in the letter)");
         System.out.println();
         System.out.println();
@@ -33,39 +30,40 @@ public class basicPhysics {
        
         funType = userResp.next().charAt(0);
         
-        switch (funType) {
-            case 'A': 
-                System.out.println("======================================");
+        switch (funType) { 
+            case 'A': // kinematics 
+                System.out.println("======================================"); 
                 kinematics();
                 break;
-            case 'B': 
+            case 'B': // uniform circular motion 
                 System.out.println("======================================");
                 uniformCircularM();
                 break;
-            case 'C': 
+            case 'C': // vectors 
                 System.out.println("======================================");
                 vectors();
                 break; 
-            case 'D': 
+            case 'D': // projectile motion 
                 System.out.println("======================================");   
                 projectileMotion();
                 break;
-            default: 
+            default: // default function (ERROR)
                 System.out.println("======================================");
                 System.out.println("That is not a valid input, please try again");
                 physics();
         }
     }
 
-    public void kinematics() {
-        Scanner userResp = new Scanner(System.in);
-
+    public void kinematics() { // kinematics functions 
+        Scanner userResp = new Scanner(System.in); // scanner is used for the user input
+    
+        // selecting equation using a switch case statement
         System.out.println("What type of equation would you like to use for Kinematics? (Type in a letter): ");
         System.out.println("A.) d = Vt\nB.) Vavg = dt / tt\nC.) Vf = Vi + at\nD.) d = (Vi + Vf)t / 2\nE.) Vf[2] = Vi[2] + 2at");
         System.out.println();
         probType = userResp.next().charAt(0); 
 
-        switch(probType) {
+        switch(probType) { // using a try catch so that the program catches exceptions from the user
             case 'A': 
                try {
                     System.out.println("======================================"); // catching error algorithim (lines 70-79)
@@ -202,7 +200,7 @@ public class basicPhysics {
             }
     }
 
-    public void uniformCircularM() { // START HERE VVV
+    public void uniformCircularM() { 
         Scanner userResp = new Scanner(System.in);
 
         System.out.println("What type of equation would you like to use for Uniform Circular Motion? (Type in a letter): ");
@@ -212,54 +210,75 @@ public class basicPhysics {
 
         switch (probType) {
             case 'A': 
-                System.out.println("======================================");   
-                System.out.println("Enter your radius (m): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your radius (m): ");
 
-                r = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    r = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
 
-                t = userResp.nextDouble();
-                System.out.println("V = 2π"+r+ " / " + t);
+                    t = userResp.nextDouble();
+                    System.out.println("V = 2π"+r+ " / " + t);
 
-                vAvg = 2 * Math.PI * r;
-                result = vAvg / t;
+                    vAvg = 2 * Math.PI * r;
+                    result = vAvg / t;
 
-                System.out.println("V = "+result);
+                    System.out.println("V = "+result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    uniformCircularM();
+                }
                 break;
-            case 'B': 
-                System.out.println("======================================");   
-                System.out.println("Enter your velocity (m/s: )");
+            case 'B':
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your velocity (m/s: )");
 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your radius (m): ");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your radius (m): ");
 
-                r = userResp.nextDouble(); 
-                System.out.println("Ac = " + vAvg + "[2] / " + r);
+                    r = userResp.nextDouble(); 
+                    System.out.println("Ac = " + vAvg + "[2] / " + r);
 
-                x1 = Math.pow(vAvg, 2); 
-                result = x1 / r; 
+                    x1 = Math.pow(vAvg, 2); 
+                    result = x1 / r; 
 
-                System.out.println("======================================");   
-                System.out.println("Ac = " + result);
+                    System.out.println("======================================");   
+                    System.out.println("Ac = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    uniformCircularM();
+                }
                 break; 
             case 'C': 
-                System.out.println("======================================");   
-                System.out.println("Enter your RPMs (rpm): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your RPMs (rpm): ");
 
-                x1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Enter your radius (m): ");
+                    x1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Enter your radius (m): ");
 
-                r = userResp.nextDouble();
-                System.out.println("V = ("+x1+")"+"(2π"+r+") / 60"); 
+                    r = userResp.nextDouble();
+                    System.out.println("V = ("+x1+")"+"(2π"+r+") / 60"); 
 
-                x2 = 2 * Math.PI * r;
-                vAvg = x2 * x1; 
-                result = vAvg / 60; 
+                    x2 = 2 * Math.PI * r;
+                    vAvg = x2 * x1; 
+                    result = vAvg / 60; 
 
-                System.out.println("V = " + result);
+                    System.out.println("V = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    uniformCircularM();
+                }
                 break;
             default: 
                 System.out.println("======================================");   
@@ -281,76 +300,106 @@ public class basicPhysics {
 
         switch (probType) {
             case 'A': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Radius (m): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Radius (m): ");
 
-                r = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Enter your angle (%): ");
+                    r = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Enter your angle (%): ");
 
-                x1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Xcomp =" + r +"cos" + x1);
+                    x1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Xcomp =" + r +"cos" + x1);
 
-                x2 = Math.cos(x1);
-                result = r * x2;
+                    x2 = Math.cos(x1);
+                    result = r * x2;
 
-                System.out.println("Xcomp =" + result);
+                    System.out.println("Xcomp =" + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    vectors();
+                }
                 break;
             case 'B':
-                System.out.println("======================================");   
-                System.out.println("Enter your radius (m): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your radius (m): ");
 
-                r = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your angle (%): ");
+                    r = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your angle (%): ");
 
-                x1 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Ycomp =" + r + "sin" + x1);
+                    x1 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Ycomp =" + r + "sin" + x1);
 
-                x2 = Math.sin(x1); 
-                result = r * x2; 
+                    x2 = Math.sin(x1); 
+                    result = r * x2; 
 
-                System.out.println("Ycomp =" + result);
+                    System.out.println("Ycomp =" + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    vectors();
+                }
+                
                 break; 
             case 'C': 
-                System.out.println("======================================");
-                System.out.println("Enter your X vector (m): ");
+                try {
+                    System.out.println("======================================");
+                    System.out.println("Enter your X vector (m): ");
                 
-                x1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Enter your Y vector (m): ");
+                    x1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Y vector (m): ");
 
-                x2 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("R[2] =" + x1 + "[2]" + " + " + x2  + "[2]");
+                    x2 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("R[2] =" + x1 + "[2]" + " + " + x2  + "[2]");
 
-                vector1 = Math.pow(x1, 2); 
-                vector2 = Math.pow(x2, 2); 
-                double initalRt = (vector1 + vector2); 
-                result = Math.pow(initalRt, 2); 
+                    vector1 = Math.pow(x1, 2); 
+                    vector2 = Math.pow(x2, 2); 
+                    double initalRt = (vector1 + vector2); 
+                    result = Math.pow(initalRt, 2); 
 
-                System.out.println("R =" + result);
+                    System.out.println("R =" + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    vectors();
+                }
                 break;
             case 'D': 
-                System.out.println("======================================");   
-                System.out.println("Enter your y: ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your y: ");
 
-                vector2 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your x: ");
+                    vector2 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your x: ");
 
-                vector1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Ang = tan[-1]("+vector2+"/"+vector1+")");
+                    vector1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Ang = tan[-1]("+vector2+"/"+vector1+")");
 
-                x1 = vector2 / vector1; 
-                result = Math.atan(x1); 
+                    x1 = vector2 / vector1; 
+                    result = Math.atan(x1); 
 
-                System.out.println("Ang =" + result);
+                    System.out.println("Ang =" + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    vectors();
+                }
                 break; 
             default:
+                System.out.println("======================================");   
                 System.out.println("Not a valid input, please try again.");
                 vectors();
                 break;
@@ -369,117 +418,169 @@ public class basicPhysics {
 
         switch (probType) {
             case 'A': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Velocity (m/s): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Velocity (m/s): ");
                 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your Angle (%): ");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Angle (%): ");
 
-                x1 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Vx = "+vAvg+"cos"+x1);
+                    x1 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Vx = "+vAvg+"cos"+x1);
 
-                x2 = Math.cos(x1); 
-                result = vAvg * x2; 
+                    x2 = Math.cos(x1); 
+                    result = vAvg * x2; 
 
-                System.out.println("Vx =" + result);
+                    System.out.println("Vx =" + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break; 
             case 'B': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Velocity (m/s): ");
-
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your Angle (%): ");
-
-                x1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Viy = " + vAvg+"sin"+x1);
-
-                x2 = Math.sin(x1); 
-                result = vAvg * x2; 
-
-                System.out.println("Viy = " + result);
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Velocity (m/s): ");
+    
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Angle (%): ");
+    
+                    x1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Viy = " + vAvg+"sin"+x1);
+    
+                    x2 = Math.sin(x1); 
+                    result = vAvg * x2; 
+    
+                    System.out.println("Viy = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break; 
             case 'C': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Velocity (m/s): ");
+                try { 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Velocity (m/s): ");
 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
 
-                t = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Dx = " +"("+vAvg+")"+"("+t+")");
+                    t = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Dx = " +"("+vAvg+")"+"("+t+")");
 
-                result = vAvg * t; 
+                    result = vAvg * t; 
 
-                System.out.println("Dx = " + result);
+                    System.out.println("Dx = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break; 
-            case 'D': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Velocity in the Y direction (m/s): ");
+            case 'D':
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Velocity in the Y direction (m/s): ");
 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your time (s): ");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your time (s): ");
 
-                t = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Dfy = " + vAvg + " - " + "(9.80)"+t);
+                    t = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Dfy = " + vAvg + " - " + "(9.80)"+t);
 
-                x1 = t * 9.80; 
-                result = vAvg - x1; 
+                    x1 = t * 9.80; 
+                    result = vAvg - x1; 
 
-                System.out.println("Dfy = "+ result);
+                    System.out.println("Dfy = "+ result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break; 
             case 'E': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Velocity (m/s): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Velocity (m/s): ");
 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("Enter your Angle (%): ");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Angle (%): ");
 
-                x1 = userResp.nextDouble();
-                System.out.println("======================================");   
-                System.out.println("Dfy = " + vAvg +"[2]"+"(Sin2"+x1+") / 9.80");
+                    x1 = userResp.nextDouble();
+                    System.out.println("======================================");   
+                    System.out.println("Dfy = " + vAvg +"[2]"+"(Sin2"+x1+") / 9.80");
 
-                x2 = Math.pow(vAvg, 2); 
-                x3 = Math.sin(x1); 
-                double x4 = x3 * 2; 
-                result = x4 / 9.80; 
+                    x2 = Math.pow(vAvg, 2); 
+                    x3 = Math.sin(x1); 
+                    double x4 = x3 * 2; 
+                    result = x4 / 9.80; 
 
-                System.out.println("Dfy = " + result);
+                    System.out.println("Dfy = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break; 
             case 'F': 
-                System.out.println("======================================");   
-                System.out.println("Enter your Distance in the Y direction (m): ");
+                try {
+                    System.out.println("======================================");   
+                    System.out.println("Enter your Distance in the Y direction (m): ");
 
-                x1 = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("t = √"+x1+ " / √4.90");
+                    x1 = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("t = √"+x1+ " / √4.90");
 
-                x2 = Math.sqrt(x1); 
-                result = x2 / (Math.sqrt(4.90));
+                    x2 = Math.sqrt(x1); 
+                    result = x2 / (Math.sqrt(4.90));
 
-                System.out.println("t = " + result);
+                    System.out.println("t = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break;
             case 'G': 
-                System.out.println("======================================");                   
-                System.out.println("Enter your Velocity in the Y direction (m/s): ");
+                try {
+                    System.out.println("======================================");                   
+                    System.out.println("Enter your Velocity in the Y direction (m/s): ");
 
-                vAvg = userResp.nextDouble(); 
-                System.out.println("======================================");   
-                System.out.println("t = 2"+vAvg+" / 9.80");
+                    vAvg = userResp.nextDouble(); 
+                    System.out.println("======================================");   
+                    System.out.println("t = 2"+vAvg+" / 9.80");
 
-                result = (2*vAvg) / 9.80;
+                    result = (2*vAvg) / 9.80;
 
-                System.out.println("t = " + result);
+                    System.out.println("t = " + result);
+                } catch (Exception e) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again");
+                    System.out.println("======================================");   
+                    projectileMotion();
+                }
                 break;
             default: 
+                System.out.println("======================================");   
+                System.out.println("That is not a valid input, please try again.");
+                projectileMotion();
         }
     }
 }
