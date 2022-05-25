@@ -1,10 +1,10 @@
 package calcCode.basic_math;
 import java.util.Scanner;
 
-public class basicMath {
+public class basicMath { // primary variables 
     public int input;
 
-    public void basicM() {
+    public void basicM() { // does not need switch case 
         Scanner scan = new Scanner(System.in); 
         simpEq se = new simpEq();
 
