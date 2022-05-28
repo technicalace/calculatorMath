@@ -1,5 +1,6 @@
 package calcCode.trigonometry;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -36,7 +37,7 @@ public class soaCahToa {
 
    
 
-    void degSolve() {
+    void degSolve() { // DEGREE SOLVE
         Scanner userResp = new Scanner(System.in);
 
         System.out.println("You are in degree mode, what function would you like to use? ");
@@ -46,24 +47,40 @@ public class soaCahToa {
         switch (funType) {
             case "sin": 
                 System.out.println("You have chosen sin\nChoose your number: ");
-                x = userResp.nextInt(); 
-                System.out.println(Math.sin(Math.toRadians(x)));
+                try {
+                    x = userResp.nextInt(); 
+                    System.out.println(Math.sin(Math.toRadians(x)));
+                } catch (InputMismatchException ie) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again.");
+                    degSolve();
+                }
                 break; 
             case "cos": 
                 System.out.println("You have chosen cos\nChoose your number: ");
-                x = userResp.nextInt();
-                System.out.println(Math.cos(Math.toRadians(x)));
+                try {
+                    x = userResp.nextInt();
+                    System.out.println(Math.cos(Math.toRadians(x)));
+                } catch (InputMismatchException ie) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again.");
+                    degSolve();
+                }
                 break; 
             case "tan": 
                 System.out.println("You have chosen tan\nChoose your number: ");
+                try {
                 x = userResp.nextInt(); 
                 System.out.println(Math.tan(Math.toRadians(x)));
-            default: 
-                System.out.println("That is not a valid input.");
-                degSolve();
+                } catch (InputMismatchException ie) {
+                    System.out.println("======================================");   
+                    System.out.println("That is not a valid input, please try again.");
+                    degSolve();
+                }
         }
         userResp.close();
     }
+    
     void radSolve() {
        Scanner userResp = new Scanner(System.in);
        
@@ -71,24 +88,39 @@ public class soaCahToa {
        System.out.println("(sin, cos, tan): ");
        funType = userResp.nextLine().toLowerCase(); 
 
-       switch (funType) {
+       switch (funType) { // RADIAN SOLVE 
         case "sin": 
             System.out.println("You have chosen sin\nChoose your number: ");
-            x = userResp.nextInt(); 
-            System.out.println(Math.sin(x));
+            try {
+                x = userResp.nextInt(); 
+                System.out.println(Math.sin(x));
+            } catch (InputMismatchException ie) {
+                System.out.println("======================================");   
+                System.out.println("That is not a valid input, please try again.");
+                radSolve();
+            } 
             break; 
         case "cos": 
             System.out.println("You have chosen cos\nChoose your number: ");
-            x = userResp.nextInt();
-            System.out.println(Math.cos(x));
+            try {
+                x = userResp.nextInt();
+                System.out.println(Math.cos(x));
+            } catch (InputMismatchException ie) {
+                System.out.println("======================================");   
+                System.out.println("That is not a valid input, please try again.");
+                radSolve();
+            }
             break; 
         case "tan": 
             System.out.println("You have chosen tan\nChoose your number: ");
-            x = userResp.nextInt(); 
-            System.out.println(Math.tan(x));
-        default: 
-            System.out.println("That is not a valid input.");
-            radSolve();
+            try {
+                x = userResp.nextInt(); 
+                System.out.println(Math.tan(x));
+            } catch (InputMismatchException ie) {
+                System.out.println("======================================");   
+                System.out.println("That is not a valid input, please try again.");
+                radSolve();
+            }
     }
     userResp.close();
 
