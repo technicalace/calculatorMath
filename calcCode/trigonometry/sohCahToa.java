@@ -26,10 +26,10 @@ public class sohCahToa {
        
        if (probType.equalsIgnoreCase("degree")) {
             System.out.println("\nYou are now in degree mode: ");
-            funTypeD();
+            degSolve();
        } else if (probType.equalsIgnoreCase("radian")) {
             System.out.println("\nYou are now in radian mode: ");
-            funTypeR();
+            radSolve();
         } else {
            System.out.println("That is not a valid type.");
            selectFun();
