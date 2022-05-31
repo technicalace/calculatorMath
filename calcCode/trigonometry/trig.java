@@ -6,7 +6,7 @@ public class trig {
     
     public void trig() {
         Scanner scan = new Scanner(System.in); 
-        soaCahToa sct = new soaCahToa(); 
+        sohCahToa sct = new sohCahToa(); 
 
         System.out.println("What function would you like to use?:\n1.) SohCahToa");
 

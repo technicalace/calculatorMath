@@ -1,4 +1,5 @@
 package calcCode;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import calcCode.basic_math.basicMath;
@@ -19,6 +20,7 @@ public class mathCalc {
         
         System.out.println("What tyoe of function would you like to use?\n1.) Basic Math\n2.) Trigonometry\n3.) Physics\n4.) Number Playground");
         
+        try {
         input = userInput.nextInt();
 
         if (input == 1) {
@@ -36,6 +38,11 @@ public class mathCalc {
         } else {
             System.out.println("======================================");
             System.out.println("Not a valid input, please try again.");
+            main(args);
+        }
+        } catch (InputMismatchException ie) {
+            System.out.println("======================================");
+            System.out.println("That is not a valid input");
             main(args);
         }
 
